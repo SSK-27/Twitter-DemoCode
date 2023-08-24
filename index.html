@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Twitter Clone - Final</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" />
+
+
+</head>
+
+<body>
+  <script type="text/javascript" src="../twitter-clone/script.js"></script>
+
+  <div class="sidebar">
+    <i class="fab fa-twitter"></i>
+    <div class="sidebarOption active">
+      <span class="material-icons"> home </span>
+      <h2>Home</h2>
+    </div>
+
+    <div class="sidebarOption">
+      <span class="material-icons"> search </span>
+      <h2>Explore</h2>
+    </div>
+
+    <div class="sidebarOption">
+      <span class="material-icons"> notifications_none </span>
+      <h2>Notifications</h2>
+    </div>
+
+    <div class="sidebarOption">
+      <span class="material-icons"> mail_outline </span>
+      <h2>Messages</h2>
+    </div>
+
+    <div class="sidebarOption">
+      <span class="material-icons"> list_alt </span>
+      <h2>Lists</h2>
+    </div>
+
+    <div class="sidebarOption">
+      <span class="material-icons"> bookmark_border </span>
+      <h2>Bookmarks</h2>
+    </div>
+
+    <div class="sidebarOption">
+      <span class="material-icons"> perm_identity </span>
+      <h2>Profile</h2>
+    </div>
+
+    <div class="sidebarOption">
+      <span class="material-icons"> more_horiz </span>
+      <h2>More</h2>
+    </div>
+    <button class="sidebar__tweet">post</button>
+
+    <div class="userDetails">
+      <span class="material-icons"> perm_identity </span>
+      <div class="userDetailValues">
+        <h4>Srushti Kumbhojkar</h4>
+        <p lang="en" dir="ltr">
+          @Srushti272002
+        </p>
+      </div>
+      
+    </div>
+  
+  </div>
+
+  <div class="feed">
+    <div class="feed__header">
+      <h2>Home</h2>
+    </div>
+
+    <div class="tweetBox">
+      <form>
+        <div class="tweetbox__input">
+          <img src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png" alt="" />
+          <input type="text" id="tweetValue" placeholder="What's happening?" />
+        </div>
+        <button class="tweetBox__tweetButton"  onclick="addTweet(event)" >post</button>
+      </form>
+    </div>
+   
+    <div class="post" *ngIf="dataTweeted">
+      <div class="post__avatar">
+        <img src="https://boldoutline.in/wp-content/uploads/2020/01/Web-Cover-2.jpg" alt="" />
+      </div>
+
+      <div class="post__body">
+        <div class="post__header">
+          <div class="post__headerText">
+            <h1>
+              Srushti Kumbhojkar
+            </h1>
+          </div>
+          <div class="post__headerDescription">
+            <p id="dataToShow"> Welcome Srushti</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="post">
+      <div class="post__avatar">
+        <img src="https://boldoutline.in/wp-content/uploads/2020/01/Web-Cover-2.jpg" alt="" />
+      </div>
+
+      <div class="post__body">
+        <div class="post__header">
+          <div class="post__headerText">
+            <h3>
+              Chandrayaan 3 updates
+              <span class="post__headerSpecial"><span class="material-icons post__badge"> verified </span></span>
+            </h3>
+          </div>
+          <div class="post__headerDescription">
+            <p>Mission Accomplished! Chandrayaan's touchdown on the moon</p>
+          </div>
+        </div>
+        <img src="https://updatedyou.com/wp-content/uploads/2019/11/Webp.net-resizeimage-1.jpg" alt="" />
+        <div class="post__footer">
+          <span class="material-icons"> repeat </span>
+          <span class="material-icons"> favorite_border </span>
+          <span class="material-icons"> publish </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="post">
+      <div class="post__avatar">
+        <img src="https://insidebigdata.com/wp-content/uploads/2019/04/DataScience_shutterstock_1054542323.jpg" alt="" />
+      </div>
+
+      <div class="post__body">
+        <div class="post__header">
+          <div class="post__headerText">
+            <h3>
+             Data Science
+              <span class="post__headerSpecial"><span class="material-icons post__badge"> verified </span></span>
+            </h3>
+          </div>
+          <div class="post__headerDescription">
+            <p>Daily data science tweets</p>
+          </div>
+        </div>
+        <img src="https://i.pinimg.com/originals/b3/f2/5e/b3f25ef625feb59fe76ff06933d5ddaa.jpg" alt="" />
+        <div class="post__footer">
+          <span class="material-icons"> repeat </span>
+          <span class="material-icons"> favorite_border </span>
+          <span class="material-icons"> publish </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="widgets">
+    <div class="widgets__input">
+      <span class="material-icons widgets__searchIcon"> search </span>
+      <input type="text" placeholder="Search Twitter" />
+    </div>
+
+    <div class="widgets__widgetContainer">
+      <h2>What's happening?</h2>
+      <div class="tweet">
+        <div id="date"></div>
+        <h2>#SalesForce</h2>
+        <p lang="en" dir="ltr">
+          Trending new Things
+          <a href="https://twitter.com/i/events/1691192593906892800" target="_blank">Salesforce Data</a>
+        </p>
+        <a href="https://twitter.com/Interior/status/463440424141459456?ref_src=twsrc%5Etfw">May 5, 2014</a>
+      </div>
+
+      <div class="tweet">
+        <h2>#Chandrayaan3</h2>
+        <p lang="en" dir="ltr">
+          Trending new Things
+          <a href="https://twitter.com/Chandrayaan3" target="_blank">#Chandrayaan3</a>
+        </p>
+        <a href="https://twitter.com/Interior/status/463440424141459456?ref_src=twsrc%5Etfw">May 5, 2014</a>
+      </div>
+
+      <div class="tweet">
+        <h2>#DataScience</h2>
+        <p lang="en" dir="ltr">
+          Trending with
+          <a href="https://twitter.com/hashtag/Machinelearning?src=hashtag_click" target="_blank">#MachineLearning</a> 
+        </p>
+        <a href="https://twitter.com/hashtag/SQL?src=hashtag_click">#SQL</a>
+        <a href="https://twitter.com/hashtag/technology?src=hashtag_click">#technology</a>
+      </div>
+
+      <div class="tweet">
+        <h2>Digital Marketing</h2>
+        <p lang="en" dir="ltr">
+          Trending with
+          <a href="https://twitter.com/hashtag/Domains?src=hashtag_click" target="_blank">#Domains</a> ,
+        </p>
+        <a href="https://twitter.com/hashtag/copywriting?src=hashtag_click">#copywriting</a>
+        <a href="https://twitter.com/search?q=%23DigitalMarketing&src=hashtag_click">#DigitalMarketing</a>
+        <a href="https://twitter.com/hashtag/entrepreneur?src=hashtag_click">#Entrepreneur</a>
+        <a href="https://twitter.com/hashtag/BusinessGrowth?src=hashtag_click">#BusinessGrowth</a>
+      </div>
+
+      <div class="tweet">
+        <h2>#NationalFilmAwards</h2>
+        <p lang="en" dir="ltr">
+          Trending with
+          <a href="https://twitter.com/search?q=%22Best%20Popular%20Film%22&src=trend_click&vertical=trends" target="_blank">Best Popular film</a> ,
+        </p>
+        <a href="https://twitter.com/search?q=%23NationalFilmAcademy&src=hashtag_click">#NationalFilmAcademy</a>
+      </div>
+
+      <div class="tweet">
+        <h2>#AlluArjun𓃵</h2>
+        <p lang="en" dir="ltr">
+          Trending with
+          <a href="https://twitter.com/search?q=%23RamCharan&src=trend_click&vertical=trends" target="_blank">#RamCharan</a> 
+        </p>
+        <a href="https://twitter.com/search?q=%23RRRMovie&src=trend_click&vertical=trends">#RRR</a>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+
+</html>
